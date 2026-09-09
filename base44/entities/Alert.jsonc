@@ -1,0 +1,62 @@
+{
+  "name": "Alert",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Alert title"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "deforestation",
+        "water_quality",
+        "fire",
+        "pollution",
+        "system"
+      ],
+      "description": "Alert type"
+    },
+    "message": {
+      "type": "string",
+      "description": "Alert message"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "warning",
+        "critical"
+      ],
+      "description": "Alert severity"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number"
+        },
+        "lng": {
+          "type": "number"
+        },
+        "region": {
+          "type": "string"
+        }
+      }
+    },
+    "is_read": {
+      "type": "boolean",
+      "default": false
+    },
+    "data": {
+      "type": "object",
+      "description": "Additional alert data"
+    }
+  },
+  "required": [
+    "title",
+    "type",
+    "message",
+    "severity"
+  ]
+}

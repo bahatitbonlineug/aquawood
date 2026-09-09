@@ -1,0 +1,89 @@
+{
+  "name": "SatelliteScene",
+  "type": "object",
+  "properties": {
+    "site_name": {
+      "type": "string",
+      "description": "Uganda monitoring site name (e.g. Mabira Forest, Lake Victoria)"
+    },
+    "collection": {
+      "type": "string",
+      "enum": [
+        "sentinel-2-l2a",
+        "sentinel-1-grd"
+      ],
+      "default": "sentinel-2-l2a",
+      "description": "Copernicus collection used"
+    },
+    "bbox": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "Bounding box [west, south, east, north] in WGS84"
+    },
+    "acquisition_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Satellite acquisition timestamp"
+    },
+    "cloud_cover_pct": {
+      "type": "number",
+      "description": "Cloud cover percentage of the acquired scene"
+    },
+    "ndvi_mean": {
+      "type": "number",
+      "description": "Mean NDVI across the site (Statistical API)"
+    },
+    "ndvi_min": {
+      "type": "number"
+    },
+    "ndvi_max": {
+      "type": "number"
+    },
+    "ndwi_mean": {
+      "type": "number",
+      "description": "Mean NDWI across the site"
+    },
+    "ndwi_min": {
+      "type": "number"
+    },
+    "ndwi_max": {
+      "type": "number"
+    },
+    "true_color_url": {
+      "type": "string",
+      "description": "Uploaded true-colour Sentinel-2 PNG URL"
+    },
+    "ndvi_url": {
+      "type": "string",
+      "description": "Uploaded colourised NDVI PNG URL"
+    },
+    "ndwi_url": {
+      "type": "string",
+      "description": "Uploaded colourised NDWI PNG URL"
+    },
+    "health_status": {
+      "type": "string",
+      "enum": [
+        "healthy",
+        "at_risk",
+        "critical"
+      ],
+      "default": "healthy",
+      "description": "Derived from mean NDVI"
+    },
+    "raw_stats": {
+      "type": "object",
+      "description": "Raw Statistical API response from Copernicus"
+    },
+    "fetched_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this scene was fetched and stored"
+    }
+  },
+  "required": [
+    "site_name"
+  ]
+}

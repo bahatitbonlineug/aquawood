@@ -1,0 +1,52 @@
+{
+  "name": "Organisation",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Organisation name"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "government",
+        "ngo",
+        "research",
+        "corporate",
+        "community"
+      ],
+      "description": "Organisation type"
+    },
+    "description": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "string",
+      "description": "Logo URL"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "assigned_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Assigned monitoring zone IDs"
+    }
+  },
+  "required": [
+    "name",
+    "type"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "name": "PlantDiagnosis",
+  "type": "object",
+  "properties": {
+    "image_url": {
+      "type": "string",
+      "description": "Uploaded leaf/plant image URL"
+    },
+    "plant_name": {
+      "type": "string",
+      "description": "Identified plant name (common + scientific)"
+    },
+    "disease_name": {
+      "type": "string",
+      "description": "Detected disease or condition"
+    },
+    "disease_description": {
+      "type": "string",
+      "description": "Description of the disease/condition"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "healthy",
+        "mild",
+        "moderate",
+        "severe",
+        "critical"
+      ],
+      "description": "Disease severity level"
+    },
+    "confidence_pct": {
+      "type": "number",
+      "description": "AI confidence percentage (0-100)"
+    },
+    "symptoms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Observed symptoms from image"
+    },
+    "local_treatment": {
+      "type": "string",
+      "description": "Traditional/local treatment suggestions in local language (Luganda)"
+    },
+    "scientific_treatment": {
+      "type": "string",
+      "description": "Scientific/chemical treatment recommendations"
+    },
+    "prevention_tips": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Prevention measures"
+    },
+    "location_suggestion": {
+      "type": "string",
+      "description": "Where to get treatment/help locally (in Luganda + English)"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number"
+        },
+        "lng": {
+          "type": "number"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "description": "GPS location where plant was found"
+    },
+    "urgency": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "description": "Urgency of treatment"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional field notes"
+    }
+  },
+  "required": [
+    "image_url"
+  ]
+}

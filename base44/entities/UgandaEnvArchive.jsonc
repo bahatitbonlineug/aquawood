@@ -1,0 +1,109 @@
+{
+  "name": "UgandaEnvArchive",
+  "type": "object",
+  "properties": {
+    "site_name": {
+      "type": "string",
+      "description": "Name of the site (forest, swamp, water body, or district)"
+    },
+    "feature_type": {
+      "type": "string",
+      "enum": [
+        "forest",
+        "swamp",
+        "water_body",
+        "national_park",
+        "district"
+      ],
+      "description": "Type of environmental feature"
+    },
+    "water_classification": {
+      "type": "string",
+      "enum": [
+        "lake",
+        "swamp",
+        "river",
+        "wetland",
+        "none"
+      ],
+      "description": "Specific water body classification (lake, swamp, river, wetland, or none for non-water sites)"
+    },
+    "region": {
+      "type": "string",
+      "description": "Uganda region where the site is located"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Site latitude"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Site longitude"
+    },
+    "acquisition_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date of this satellite data sample"
+    },
+    "cloud_cover_pct": {
+      "type": "number",
+      "description": "Cloud cover percentage from nearest Sentinel-2 scene"
+    },
+    "ndvi": {
+      "type": "number",
+      "description": "Normalized Difference Vegetation Index from NASA GIBS MODIS (real pixel sample)"
+    },
+    "ndwi": {
+      "type": "number",
+      "description": "Normalized Difference Water Index from NASA GIBS MODIS Flood layer (real pixel sample)"
+    },
+    "surface_temp_c": {
+      "type": "number",
+      "description": "Land surface temperature from NASA GIBS MODIS Terra LST (real)"
+    },
+    "water_detected": {
+      "type": "boolean",
+      "description": "Whether water/flood was detected at the pixel"
+    },
+    "rainfall_mm": {
+      "type": "number",
+      "description": "Precipitation for that date from Open-Meteo (real)"
+    },
+    "temperature_c": {
+      "type": "number",
+      "description": "Air temperature for that date from Open-Meteo (real)"
+    },
+    "humidity_pct": {
+      "type": "number",
+      "description": "Humidity percentage for that date from Open-Meteo (real)"
+    },
+    "health_status": {
+      "type": "string",
+      "enum": [
+        "healthy",
+        "at_risk",
+        "critical"
+      ],
+      "description": "Vegetation health status derived from NDVI"
+    },
+    "scene_id": {
+      "type": "string",
+      "description": "Nearest Copernicus Sentinel-2 scene ID from STAC catalog"
+    },
+    "batch_id": {
+      "type": "string",
+      "description": "Identifies which refresh batch this record belongs to"
+    },
+    "fetched_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this record was fetched and stored"
+    }
+  },
+  "required": [
+    "site_name",
+    "feature_type",
+    "latitude",
+    "longitude"
+  ]
+}

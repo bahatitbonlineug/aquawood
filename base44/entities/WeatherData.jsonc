@@ -1,0 +1,58 @@
+{
+  "name": "WeatherData",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of weather record (YYYY-MM-DD)"
+    },
+    "district": {
+      "type": "string",
+      "description": "District name (e.g. Kampala, Mbarara)"
+    },
+    "temperature_c": {
+      "type": "number",
+      "description": "Temperature in Celsius"
+    },
+    "feels_like_c": {
+      "type": "number"
+    },
+    "humidity_pct": {
+      "type": "number"
+    },
+    "wind_speed_kmh": {
+      "type": "number"
+    },
+    "condition": {
+      "type": "string",
+      "description": "Weather condition label e.g. Partly Cloudy"
+    },
+    "condition_code": {
+      "type": "string",
+      "description": "Short code: sunny, cloudy, rainy, stormy, foggy, partly_cloudy"
+    },
+    "precipitation_mm": {
+      "type": "number"
+    },
+    "uv_index": {
+      "type": "number"
+    },
+    "forecast_json": {
+      "type": "string",
+      "description": "JSON string of 7-day forecast array"
+    },
+    "data_source": {
+      "type": "string",
+      "enum": [
+        "open_meteo",
+        "ai_estimated"
+      ],
+      "default": "open_meteo"
+    }
+  },
+  "required": [
+    "date",
+    "district"
+  ]
+}

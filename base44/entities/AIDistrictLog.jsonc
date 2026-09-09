@@ -1,0 +1,49 @@
+{
+  "name": "AIDistrictLog",
+  "type": "object",
+  "properties": {
+    "district": {
+      "type": "string",
+      "description": "Uganda district name"
+    },
+    "logged_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of this analysis log"
+    },
+    "weather_summary": {
+      "type": "string",
+      "description": "Current weather summary for this district"
+    },
+    "satellite_indicators": {
+      "type": "string",
+      "description": "Satellite-derived indicators (NDVI, deforestation risk etc)"
+    },
+    "ai_suggestion": {
+      "type": "string",
+      "description": "AI-generated suggestion/recommendation for this district"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ],
+      "default": "low"
+    },
+    "environmental_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of detected environmental concerns"
+    }
+  },
+  "required": [
+    "district",
+    "logged_at",
+    "ai_suggestion"
+  ]
+}

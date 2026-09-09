@@ -1,0 +1,104 @@
+{
+  "name": "SatelliteMonitoringLog",
+  "type": "object",
+  "properties": {
+    "site_name": {
+      "type": "string",
+      "description": "Monitored site: Mabira Forest or Lake Victoria",
+      "enum": [
+        "Mabira Forest",
+        "Lake Victoria"
+      ]
+    },
+    "logged_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Exact timestamp of this hourly monitoring record"
+    },
+    "temperature_c": {
+      "type": "number"
+    },
+    "humidity_pct": {
+      "type": "number"
+    },
+    "wind_speed_kmh": {
+      "type": "number"
+    },
+    "precipitation_mm": {
+      "type": "number"
+    },
+    "uv_index": {
+      "type": "number"
+    },
+    "weather_condition": {
+      "type": "string"
+    },
+    "ndvi_estimate": {
+      "type": "number",
+      "description": "Estimated NDVI (0-1): vegetation health index derived from UV/solar radiation proxy"
+    },
+    "solar_radiation_wm2": {
+      "type": "number",
+      "description": "Solar shortwave radiation W/m\u00b2 from Open-Meteo (satellite-derived)"
+    },
+    "surface_temp_c": {
+      "type": "number",
+      "description": "Estimated land/water surface temperature"
+    },
+    "cloud_cover_pct": {
+      "type": "number",
+      "description": "Cloud cover percentage (satellite-derived)"
+    },
+    "evapotranspiration_mm": {
+      "type": "number",
+      "description": "Evapotranspiration in mm (satellite-derived, key for forest health)"
+    },
+    "deforestation_risk": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ]
+    },
+    "water_quality_index": {
+      "type": "number",
+      "description": "Estimated water quality index 0-100 (Lake Victoria only)"
+    },
+    "ai_analysis": {
+      "type": "string",
+      "description": "AI-generated hourly analysis"
+    },
+    "ai_risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ]
+    },
+    "ai_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Environmental flags raised by AI"
+    },
+    "recommended_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "data_source": {
+      "type": "string",
+      "default": "open_meteo_satellite"
+    }
+  },
+  "required": [
+    "site_name",
+    "logged_at"
+  ]
+}

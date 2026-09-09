@@ -1,0 +1,209 @@
+{
+  "name": "MonitoringActivity",
+  "type": "object",
+  "properties": {
+    "activity_name": {
+      "type": "string",
+      "description": "Name of the monitoring activity"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "forest",
+        "wetland",
+        "agriculture",
+        "tree_plantation",
+        "water_body",
+        "wildlife",
+        "environmental_monitoring"
+      ],
+      "description": "Monitoring category"
+    },
+    "user_id": {
+      "type": "string",
+      "description": "ID of the user who created the activity"
+    },
+    "user_name": {
+      "type": "string",
+      "description": "Name of the user who created the activity"
+    },
+    "geometry": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          }
+        }
+      },
+      "description": "Polygon vertices (lat/lng pairs) defining the monitoring boundary"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Center latitude (GPS capture point)"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Center longitude (GPS capture point)"
+    },
+    "area_sqm": {
+      "type": "number",
+      "description": "Calculated polygon area in square meters"
+    },
+    "perimeter_m": {
+      "type": "number",
+      "description": "Calculated polygon perimeter in meters"
+    },
+    "monitoring_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time of the monitoring activity"
+    },
+    "district": {
+      "type": "string",
+      "description": "Estimated district based on GPS location"
+    },
+    "satellite_provider": {
+      "type": "string",
+      "description": "Satellite data provider (NASA GIBS, Copernicus, Open-Meteo)"
+    },
+    "satellite_name": {
+      "type": "string",
+      "description": "Satellite name (MODIS Terra, Sentinel-2, etc.)"
+    },
+    "acquisition_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Satellite data acquisition date"
+    },
+    "processing_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When satellite data was processed"
+    },
+    "spatial_resolution_m": {
+      "type": "number",
+      "description": "Spatial resolution in meters"
+    },
+    "cloud_percentage": {
+      "type": "number",
+      "description": "Cloud cover percentage"
+    },
+    "ndvi": {
+      "type": "number",
+      "description": "Normalized Difference Vegetation Index (-1 to 1) \u2014 real value from NASA GIBS MODIS pixel"
+    },
+    "ndwi": {
+      "type": "number",
+      "description": "Normalized Difference Water Index (-1 to 1) \u2014 derived from NASA GIBS MODIS Flood layer"
+    },
+    "surface_temp_c": {
+      "type": "number",
+      "description": "Land surface temperature from NASA GIBS MODIS Terra LST (satellite-derived, real)"
+    },
+    "vegetation_status": {
+      "type": "string",
+      "enum": [
+        "healthy",
+        "moderate",
+        "degraded",
+        "barren"
+      ],
+      "description": "Vegetation health status derived from NDVI"
+    },
+    "water_presence": {
+      "type": "boolean",
+      "description": "Whether water body is detected (NDWI > 0.2)"
+    },
+    "water_detected": {
+      "type": "boolean",
+      "description": "Whether water/flood is detected by NASA GIBS MODIS Flood 3-Day layer pixel sample"
+    },
+    "flood_risk": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "description": "Flood risk level derived from rainfall and NDWI/water detection"
+    },
+    "fire_risk": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "description": "Fire risk level derived from surface temperature, humidity, and dryness"
+    },
+    "rainfall_mm": {
+      "type": "number",
+      "description": "Recent rainfall in mm (3-day total from Open-Meteo)"
+    },
+    "temperature_c": {
+      "type": "number",
+      "description": "Temperature in Celsius (surface temp from GIBS if available, else air temp from Open-Meteo)"
+    },
+    "humidity_pct": {
+      "type": "number",
+      "description": "Current humidity percentage from Open-Meteo"
+    },
+    "fire_hotspots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          },
+          "brightness": {
+            "type": "number"
+          },
+          "confidence": {
+            "type": "string"
+          },
+          "acq_date": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Detected fire hotspots near the monitoring area"
+    },
+    "land_cover": {
+      "type": "string",
+      "description": "Estimated land cover type from NDVI classification"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "completed",
+        "archived"
+      ],
+      "default": "active",
+      "description": "Monitoring activity status"
+    },
+    "alert_generated": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether an alert was generated for this activity"
+    }
+  },
+  "required": [
+    "activity_name",
+    "category",
+    "latitude",
+    "longitude",
+    "monitoring_date"
+  ]
+}

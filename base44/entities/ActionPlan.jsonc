@@ -1,0 +1,89 @@
+{
+  "name": "ActionPlan",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Action plan title"
+    },
+    "location_name": {
+      "type": "string",
+      "description": "Human-readable location name"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number"
+        },
+        "lng": {
+          "type": "number"
+        }
+      }
+    },
+    "overlay_type": {
+      "type": "string",
+      "description": "Satellite overlay active during analysis"
+    },
+    "analysis_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "environmental_impact": {
+      "type": "string",
+      "description": "Environmental impact summary"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ],
+      "description": "Overall risk level"
+    },
+    "risk_mitigation": {
+      "type": "string",
+      "description": "Risk mitigation strategies"
+    },
+    "suggested_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of recommended actions"
+    },
+    "full_analysis": {
+      "type": "string",
+      "description": "Full AI-generated markdown analysis"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Plan approval status"
+    },
+    "admin_notes": {
+      "type": "string",
+      "description": "Admin review notes"
+    },
+    "approved_by": {
+      "type": "string",
+      "description": "Email of approver"
+    },
+    "approved_date": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "title",
+    "location",
+    "full_analysis"
+  ]
+}

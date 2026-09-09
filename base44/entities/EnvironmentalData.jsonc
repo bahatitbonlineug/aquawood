@@ -1,0 +1,53 @@
+{
+  "name": "EnvironmentalData",
+  "type": "object",
+  "properties": {
+    "zone_id": {
+      "type": "string",
+      "description": "Monitoring zone ID"
+    },
+    "data_type": {
+      "type": "string",
+      "enum": [
+        "forest_cover",
+        "water_quality",
+        "air_quality",
+        "temperature",
+        "rainfall"
+      ],
+      "description": "Type of environmental data"
+    },
+    "value": {
+      "type": "number",
+      "description": "Measured value"
+    },
+    "unit": {
+      "type": "string",
+      "description": "Unit of measurement"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "satellite",
+        "sensor",
+        "manual",
+        "ai_analysis"
+      ],
+      "description": "Data source"
+    },
+    "quality_score": {
+      "type": "number",
+      "description": "Data quality score 0-100"
+    }
+  },
+  "required": [
+    "zone_id",
+    "data_type",
+    "value",
+    "timestamp"
+  ]
+}

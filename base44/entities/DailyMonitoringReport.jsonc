@@ -1,0 +1,76 @@
+{
+  "name": "DailyMonitoringReport",
+  "type": "object",
+  "properties": {
+    "report_date": {
+      "type": "string",
+      "format": "date",
+      "description": "The date this daily report covers (YYYY-MM-DD)"
+    },
+    "site_name": {
+      "type": "string",
+      "enum": [
+        "Mabira Forest",
+        "Lake Victoria",
+        "All Districts"
+      ],
+      "description": "Which site this report covers"
+    },
+    "total_scans": {
+      "type": "number",
+      "description": "Total satellite scans completed this day"
+    },
+    "deforestation_alerts_count": {
+      "type": "number",
+      "description": "Number of scans that raised deforestation risk (moderate/high/critical)"
+    },
+    "highest_risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ],
+      "description": "Highest risk level recorded during the day"
+    },
+    "avg_ndvi": {
+      "type": "number",
+      "description": "Average NDVI across all scans for the day"
+    },
+    "avg_temperature_c": {
+      "type": "number"
+    },
+    "total_precipitation_mm": {
+      "type": "number"
+    },
+    "avg_water_quality": {
+      "type": "number",
+      "description": "Average water quality index (Lake Victoria only)"
+    },
+    "environmental_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "All unique AI flags raised during the day"
+    },
+    "district_high_risk_count": {
+      "type": "number",
+      "description": "Number of districts flagged as high/critical risk"
+    },
+    "ai_daily_summary": {
+      "type": "string",
+      "description": "AI-generated daily summary narrative"
+    },
+    "data_complete": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the day's data collection is complete"
+    }
+  },
+  "required": [
+    "report_date",
+    "site_name"
+  ]
+}

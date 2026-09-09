@@ -1,0 +1,24 @@
+{
+  "name": "WeeklySummaryConfig",
+  "type": "object",
+  "properties": {
+    "recipient_emails": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of team member emails to receive weekly summaries"
+    },
+    "last_sent": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of last summary sent"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether weekly summaries are enabled"
+    }
+  },
+  "required": []
+}

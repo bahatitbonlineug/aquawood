@@ -1,0 +1,44 @@
+{
+  "name": "AppSettings",
+  "type": "object",
+  "properties": {
+    "maintenance_mode": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the app is in maintenance mode (only super admins can access)"
+    },
+    "maintenance_message": {
+      "type": "string",
+      "default": "The engine can't be reached now. Try again later.",
+      "description": "Message shown to non-super-admin users during maintenance"
+    },
+    "updated_by_name": {
+      "type": "string",
+      "description": "Name of the super admin who last toggled maintenance mode"
+    },
+    "turned_on_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When maintenance mode was last activated"
+    }
+  },
+  "required": [],
+  "rls": {
+    "read": true,
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

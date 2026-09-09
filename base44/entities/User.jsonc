@@ -1,0 +1,99 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "organisation",
+        "community"
+      ],
+      "default": "community",
+      "description": "User role in the system"
+    },
+    "phone": {
+      "type": "string",
+      "description": "User phone number"
+    },
+    "organisation_id": {
+      "type": "string",
+      "description": "Associated organisation ID"
+    },
+    "avatar": {
+      "type": "string",
+      "description": "Profile avatar URL"
+    },
+    "bio": {
+      "type": "string",
+      "description": "User biography"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "district": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string",
+          "default": "Uganda"
+        }
+      },
+      "description": "User location in Uganda"
+    },
+    "preferences": {
+      "type": "object",
+      "properties": {
+        "theme": {
+          "type": "string",
+          "enum": [
+            "light",
+            "dark"
+          ],
+          "default": "light"
+        },
+        "notifications": {
+          "type": "boolean",
+          "default": true
+        },
+        "email_alerts": {
+          "type": "boolean",
+          "default": true
+        },
+        "language": {
+          "type": "string",
+          "default": "en"
+        }
+      }
+    },
+    "expertise": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Areas of environmental expertise"
+    },
+    "reports_submitted": {
+      "type": "number",
+      "default": 0,
+      "description": "Total reports submitted by user"
+    },
+    "verified_reporter": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether user is a verified reporter"
+    }
+  },
+  "required": [
+    "phone",
+    "organisation_id",
+    "avatar",
+    "bio",
+    "location",
+    "preferences",
+    "expertise"
+  ]
+}

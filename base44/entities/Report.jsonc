@@ -1,0 +1,123 @@
+{
+  "name": "Report",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Report title"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "deforestation",
+        "water_pollution",
+        "illegal_activity",
+        "wildlife",
+        "other"
+      ],
+      "description": "Type of environmental report"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the issue"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number"
+        },
+        "lng": {
+          "type": "number"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "description": "GPS location of the report"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "description": "Severity level"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "investigating",
+        "resolved",
+        "dismissed"
+      ],
+      "default": "pending"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Evidence photos uploaded by reporter"
+    },
+    "evidence_description": {
+      "type": "string",
+      "description": "Detailed evidence description"
+    },
+    "contact_phone": {
+      "type": "string",
+      "description": "Reporter contact phone"
+    },
+    "reporter_name": {
+      "type": "string",
+      "description": "Name of the person submitting the report"
+    },
+    "observation_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the issue was observed"
+    },
+    "location_description": {
+      "type": "string",
+      "description": "Human-readable description of the location"
+    },
+    "witnesses": {
+      "type": "string",
+      "description": "Witnesses to the incident"
+    },
+    "actions_taken": {
+      "type": "string",
+      "description": "Actions already taken regarding the issue"
+    },
+    "additional_comments": {
+      "type": "string",
+      "description": "Any additional comments or context"
+    },
+    "organisation_id": {
+      "type": "string",
+      "description": "Associated organisation"
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "ai_analysis": {
+      "type": "string",
+      "description": "AI-generated analysis from AQUA WOOD"
+    },
+    "gps_accuracy": {
+      "type": "number",
+      "description": "GPS accuracy in meters"
+    }
+  },
+  "required": [
+    "title",
+    "type",
+    "description",
+    "location",
+    "severity"
+  ]
+}

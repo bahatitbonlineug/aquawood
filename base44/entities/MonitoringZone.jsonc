@@ -1,0 +1,85 @@
+{
+  "name": "MonitoringZone",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Zone name"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "forest",
+        "water_body",
+        "wetland",
+        "urban",
+        "agricultural"
+      ],
+      "description": "Zone type"
+    },
+    "coordinates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          }
+        }
+      },
+      "description": "Zone boundary coordinates"
+    },
+    "center": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number"
+        },
+        "lng": {
+          "type": "number"
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "healthy",
+        "at_risk",
+        "critical"
+      ],
+      "default": "healthy"
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "forest_cover": {
+          "type": "number"
+        },
+        "water_quality_index": {
+          "type": "number"
+        },
+        "deforestation_rate": {
+          "type": "number"
+        },
+        "pollution_level": {
+          "type": "number"
+        }
+      }
+    },
+    "organisation_id": {
+      "type": "string"
+    },
+    "last_satellite_update": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "name",
+    "type",
+    "center"
+  ]
+}
