@@ -1,4 +1,4 @@
-# Aquawood 🌿
+# Aquawood 
 
 Aquawood is an environmental monitoring platform for Uganda — satellite monitoring, plant diagnosis, alerts, reports, zone management and more. Built with React + Vite on Base44.
 
